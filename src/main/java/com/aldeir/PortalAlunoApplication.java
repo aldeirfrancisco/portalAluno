@@ -10,4 +10,6 @@ public class PortalAlunoApplication {
 		SpringApplication.run(PortalAlunoApplication.class, args);
 	}
 
+	 
+
 }

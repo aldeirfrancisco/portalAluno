@@ -21,17 +21,17 @@
 </head>
 <body style="background: white;">
 
+		<div th:insert="Cabecalho"></div>
 	<div >
 	
-		<div th:insert="Cabecalho"></div>
 		
 		<div  class=" row row-menu">
 			<div class="col-3" th:insert="Menu"></div>
 			<div th:insert="Disciplinas"></div>
-			<div class="col-12" th:insert="footer"></div>
 		</div>
 
 	</div>
+			<div class="col-12" th:insert="footer"></div>
 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"

@@ -1,30 +1,45 @@
-<!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:th="http://www.thymeleaf.org">
+	<style type="text/css">
+		.text-center{
+		 color: white;
+		}
+		.matricula{
+		 color: red;
+		}
+	</style>
 	
+<div id="idmenu">
+  <form method="GET" class="form-horizontal" action="/Aluno" th:object="${aluno}">
+	   	     <div class ="form-group">
+	            <div class="col-sm-4"> 
+	             <div  class="input-group">
+	                
+	             </div>
+	            </div>
+	   	     </div>
+	   	  </form>
+	   	  <table>
+	   	    <tbody>
+	   	       <tr th:each="aluno : ${aluno}">
+	   	          <td class="text-center" th:text="${aluno.nome}">1</td>
+	   	       </tr>
+	   	       <tr th:each="aluno : ${aluno}">
+	   	          <td class="text-center" th:text="${aluno.email}"></td>
+	   	       </tr>
+	   	       <tr th:each="aluno : ${aluno}">
+	   	          
+	   	          <td class="text-center matricula" th:text="${aluno.matricula}"></td>
+	   	       </tr>
+	   	       <tr th:each="aluno : ${aluno}">
+	   	          <td class="text-center" th:text="${aluno.curso}"></td>
+	   	       </tr>
+	   	    </tbody>
+	   	  </table>
 
-<div class=" alert alert-success ">
-<div class=" col-12 alert-success ">
-<table >
-    <tbody>
-    <tr >
-      <th scope="row" ></th>
-      <td>Aldeir Francisco da Silva</td>
-    </tr>
-    <tr >
-      <th scope="row" ></th>
-      <td>Aldeir Francisco da Silva</td>
-    </tr>
-    <tr >
-      <th scope="row" ></th>
-      <td>Aldeir Francisco da Silva</td>
-    </tr>
-    
-  </tbody>
-</table>
-
- <div class="dropdown ">
+ <div class="dropd">
   <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Seleciona aqui outro curso
   </button>
@@ -33,40 +48,10 @@
     
   </div>
 </div>
-		<ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-top: 10px;">
-			<li class="nav-item " role="presentation" >
-			<a class="nav-link active"id="home-tab" data-toggle="tab"  href="/Aluno/Dashboard" role="tab" aria-controls="home" aria-selected="true">
-			<i class="fas fa-book"></i>
-			  Minhas Diciplinas</a>
-					</li>
-			<li class="nav-item  "><a class="nav-link" href="">
-			<i class="fas fa-user"></i>
-			Informações Pessoais</a></li>
-
-			<li class="nav-item "><a class="nav-link " href="#">
-			<i class="fas fa-envelope"></i>
-			Mensagens</a>
-			</li>
-
-			<li class="nav-item"><a class="nav-link" href="#">
-			<i class="fas fa-tasks"></i>
-			Histórico Escolar</a></li>
-
-			<li class="nav-item"><a class="nav-link " href="#">
-		<i class='fas fa-dollar-sign'></i>
-			Financeiro</a>
-			</li>
-
-			<li class="nav-item"><a class="nav-link " href="#">
-			<i class="fas fa-th"></i>
-			Boletins</a>
-			</li>
-
 		
-		</ul>
 	</div>
 
-</div>
+ <div th:insert="MenuLink"></div>
 
 
 </html>

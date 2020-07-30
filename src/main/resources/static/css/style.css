@@ -2,53 +2,35 @@
 .fas {
 	margin-right: 12px
 }
-.row{
-	height:50px;
-	background: #8FBC8F;
-	border-radius: 4px;
-	
-}
-.row-linha{
-	height:50px;
-	background: #8FBC8F;
-	border-radius: 4px;
-	
-}
-.row-menu{
-height:50px;
-	background: white;
-	border-radius: 4px;	
-}
+
+
 .row-disciplina{
 	height:100%;
 	background: white;
 	border-radius: 4px;	
 }
-
-.fa-arrow-right{
-	margin-left: 85%
-}
-.alert-success{
-	height: 100%;
-}
-.dropdown {
+.dropd {
 	text-align:center;
-	margin:8px 0px 0px;
 	background: white;
 	border-radius: 4px;
-	width: 95%;
+	width: 99%;
+	margin-left:1px;
+	margin-top:20px;
 	height: 35px;
 
 }
-.btn-white{
-	width: 100%;
-}
+
 .nav-item{
-	width: 95%;
+	width: 100%;
+	margin-left: 1px;
 	border-radius: 4px;
+	margin-top: 8px;
 }
 .nav-link{
 	border-radius: 4px;
 	width: 100%;
 	height: 35px;
+}
+.row{
+	background:#5F9EA0 ;
 }
