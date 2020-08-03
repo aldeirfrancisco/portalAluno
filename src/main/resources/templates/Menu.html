@@ -9,7 +9,17 @@
 		.matricula{
 		 color: red;
 		}
+		.md-form{
+		margin-left:8px;
+		width: 80%;
+		
+		}
 	</style>
+	<SCRIPT type="text/javascript">
+	$(document).ready(function() {
+		$('.mdb-select').materialSelect();
+		});
+	</SCRIPT>
 	
 <div id="idmenu">
   <form method="GET" class="form-horizontal" action="/Aluno" th:object="${aluno}">
@@ -39,17 +49,18 @@
 	   	    </tbody>
 	   	  </table>
 
- <div class="dropd">
-  <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Seleciona aqui outro curso
-  </button>
-   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    
-  </div>
+ <div class="btn-group">
+       <select class="mdb-select nav-item">
+       
+			  <option value="" disabled selected>Seleciona aqui outro curso </option>
+			  <option th:each="aluno :${aluno}" th:text="${aluno.curso}"></option>
+			  
+</select> 
 </div>
 		
-	</div>
+</div>
+		
+	
 
  <div th:insert="MenuLink"></div>
 
