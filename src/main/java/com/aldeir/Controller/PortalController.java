@@ -8,32 +8,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.aldeir.model.CadastraAluno;
-import com.aldeir.service.CadastraAlunoService;
+import com.aldeir.model.Aluno;
+import com.aldeir.service.AlunoService;
+
 
 @Controller
 @RequestMapping("/Aluno")
 public class PortalController {
 	
 	@Autowired
-	private CadastraAlunoService  cadastraAlunoService;
+	private AlunoService  alunoService;
 	
 	
 	
 	@RequestMapping( "/Dashboard")
 	public String novo() {
-		return "CadastraAluno";
+		return "CadastrarMateria";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String salva(CadastraAluno cadastraAluno ) {
+	public String salva(Aluno cadastraAluno ) {
 	
-	 cadastraAlunoService.salvar(cadastraAluno);
+	 alunoService.salvar(cadastraAluno);
 		return "CadastraAluno";
 	}
 	@RequestMapping( "/Logado")
 	public ModelAndView buscar(){
-List<CadastraAluno> aluno = cadastraAlunoService.buscar();
+List<Aluno> aluno = alunoService.buscar();
 		 ModelAndView mv = new ModelAndView("home");
 		 mv.addObject("aluno",aluno);
 		
