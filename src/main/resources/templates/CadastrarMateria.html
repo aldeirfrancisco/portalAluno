@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+	crossorigin="anonymous">
+<title>Portal aluno</title>
+
+<style type="text/css">
+.form{
+width: 80%;
+margin-left: 8px;
+}
+form{
+
+ top:15vh;
+ background:#fff;
+ padding: 30px;
+ border-radius:1px;
+ box-shadow: 0px 0px 2px 0px;
+ width: 90%;
+ height: 90%;
+ margin-left: 65px;
+}
+.select{
+  width: 150px;
+}
+</style>
+</head>
+<body  style="background:#5F9EA0">
+		<div th:insert="Cabecalho"></div>
+	<div>
+	<form method="post" action="/Aluno">
+  <div class="form-group form">
+    <label for="exampleInputEmail1">Nome do Materia</label>
+    <input type="text" class="form-control" name="nome" id="exampleInputEmail1" aria-describedby="emailHelp"  >
+     </div>
+  <div class="form-group form">
+    <label for="exampleInputPassword1">Nome do Professor</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" name="email">
+  </div>
+  <div class="form-group form">
+    <label for="exampleInputPassword1">Post do dia</label>
+    <input type="text" class="form-control" id="exampleInputPassword1"  name="matricula">
+  </div>
+   <div class="form-group">
+    <label for="exampleFormControlSelect1">Turno</label>
+    <select class="form-control select" id="exampleFormControlSelect1">
+      <option></option>
+      <option>Natutino</option>
+      <option>Vespertino</option>
+      <option>Notuno</option>
+      
+    </select>
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+		
+		
+		
+
+	</div>
+			<div style="color:black;" class="col-12" th:insert="footer"></div>
+	
+	 
+	 <script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+	 
+       </body>
+</html>
