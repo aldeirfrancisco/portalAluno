@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 
@@ -18,38 +21,34 @@ public class Aluno  extends Pessoas implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String matricula;
-	
+	private Integer matricula;
 	private Integer turno;
 	
+	
+	@ManyToMany(mappedBy = "alunos")
+	private List<Materias> materias = new ArrayList<>();
 	
 	@ManyToMany(mappedBy = "alunos")
    private List<Professor> professores = new ArrayList<>();
 
 	
-	
-	public Aluno(String nome, String email, String curso, Integer id, String matricula, Integer turno) {
-	super(nome, email, curso);
-	this.id = id;
-	this.matricula = matricula;
-	this.turno = turno;
+	public Aluno() {
+		
 	}
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
+
+	public Aluno(String nome, String email, String curso, Integer id, Integer matricula, Turno turno) {
+		super(id,nome, email, curso);
+	
+		this.matricula = matricula;
+		this.turno = turno.getCod();
 	}
 
-	public String getMatricula() {
+	public Integer getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(String matricula) {
+	public void setMatricula(Integer matricula) {
 		this.matricula = matricula;
 	}
 	
@@ -59,7 +58,12 @@ public class Aluno  extends Pessoas implements Serializable {
 	public void setTurno(Turno turno) {
 		this.turno = turno.getCod();
 	}
-	
+	public List<Materias> getMaterias() {
+		return materias;
+	}
+	public void setMaterias(List<Materias> materias) {
+		this.materias = materias;
+	}
 	public List<Professor> getProfessores() {
 		return professores;
 	}

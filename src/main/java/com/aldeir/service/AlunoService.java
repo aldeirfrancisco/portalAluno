@@ -15,8 +15,9 @@ public class AlunoService {
 	@Autowired
 	private AlunoRepository alunoRepository;
 	
+
 	public void salvar(Aluno aluno) {
-	 alunoRepository.save(aluno);
+	 alunoRepository.save( aluno);
 	}
 	
 	public List<Aluno> buscar() {
