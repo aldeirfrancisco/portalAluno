@@ -5,21 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 
 @Entity
-public class Aluno  extends Pessoas implements Serializable {
+public class Aluno extends Pessoas implements Serializable {
 	
 
 
+
+
 	private static final long serialVersionUID = 1L;
+	
 	
 	private Integer matricula;
 	private Integer turno;
@@ -27,15 +24,14 @@ public class Aluno  extends Pessoas implements Serializable {
 	
 	@ManyToMany(mappedBy = "alunos")
 	private List<Materias> materias = new ArrayList<>();
-	
-	@ManyToMany(mappedBy = "alunos")
-   private List<Professor> professores = new ArrayList<>();
 
+	@ManyToMany(mappedBy = "alunos" )
+   private List<Professor> professores = new ArrayList<>();
 	
 	public Aluno() {
-		
 	}
 	
+
 
 	public Aluno(String nome, String email, String curso, Integer id, Integer matricula, Turno turno) {
 		super(id,nome, email, curso);
@@ -70,4 +66,5 @@ public class Aluno  extends Pessoas implements Serializable {
 	public void setProfessores(List<Professor> professores) {
 		this.professores = professores;
 	}
-}
+	}
+	

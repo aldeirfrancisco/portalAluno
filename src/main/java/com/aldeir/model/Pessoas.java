@@ -1,25 +1,18 @@
 package com.aldeir.model;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.ElementCollection;
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Pessoas implements Serializable {
-   
+
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	private Integer id;
@@ -27,22 +20,24 @@ public abstract class Pessoas implements Serializable {
 	private String email;
 	private String curso;
 	
-	
-	@ElementCollection
-	@CollectionTable(name = "TELEFONE")
-	private Set<String> telefone = new HashSet<>();
-	
-	public Pessoas(){
+	public Pessoas() {
 		
 	}
-	
+
 	public Pessoas(Integer id, String nome, String email, String curso) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.curso = curso;
-		
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -61,23 +56,13 @@ public abstract class Pessoas implements Serializable {
 		this.email = email;
 	}
 
-
 	public String getCurso() {
 		return curso;
 	}
+
 	public void setCurso(String curso) {
 		this.curso = curso;
 	}
-	
-	
-	public Set<String> getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(Set<String> telefone) {
-		this.telefone = telefone;
-	}
-	
 
 	@Override
 	public int hashCode() {
@@ -103,6 +88,7 @@ public abstract class Pessoas implements Serializable {
 			return false;
 		return true;
 	}
-	 
+
+	
 	
 }

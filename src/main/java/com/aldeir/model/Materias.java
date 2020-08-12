@@ -22,7 +22,7 @@ public class Materias implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String nome;
 
@@ -30,7 +30,7 @@ public class Materias implements Serializable {
 	@JoinTable(name = "materias_alunos", joinColumns = @JoinColumn(name = "alunos_id"), inverseJoinColumns = @JoinColumn(name = "materias_id"))
 	private List<Aluno> alunos = new ArrayList<>();
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "professor_id")
 	private Professor professor;
 

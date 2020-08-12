@@ -1,7 +1,6 @@
 package com.aldeir;
 
 import java.util.Arrays;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -36,26 +35,27 @@ public class PortalAlunoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		Professor professor = new Professor(null, "rogerio","rogerio@gmail.com","tads");
-		Aluno aluno = new Aluno("aldeir","aldeir@gmail", "tads",null , 12345, Turno.MATUTINO);
+		Aluno aluno = new Aluno("aldeir","aldeir@gmail.com","tads",null, 1234, Turno.NOTUTNO);
 		Materias materia = new Materias(null, "projeto integrado",professor);
-		professor.getTelefone().addAll(Arrays.asList("61 994569164","61 818178792"));
-		aluno.getTelefone().addAll(Arrays.asList("61 994060164","61 818888792"));
 		
-		
-		
-		materiasRepository.saveAll(Arrays.asList(materia));
-		professorRepository.saveAll(Arrays.asList(professor));
-		alunoRepository.saveAll(Arrays.asList(aluno));
-	 
 		professor.getAlunos().addAll(Arrays.asList(aluno));
 		professor.getMaterias().addAll(Arrays.asList(materia));
 		
-		  
-		 aluno.getProfessores().addAll(Arrays.asList(professor));
-		 aluno.getMaterias().addAll(Arrays.asList(materia));
-		 
-		 materia.getAluno().addAll(Arrays.asList(aluno));
+		aluno.getProfessores().addAll(Arrays.asList(professor));
+		aluno.getMaterias().addAll(Arrays.asList(materia));
 		
+		
+		
+		materia.getAluno().addAll(Arrays.asList(aluno));
+		materia.setProfessores(professor);
+		
+	 
+		
+		alunoRepository.saveAll(Arrays.asList(aluno));
+		professorRepository.saveAll(Arrays.asList(professor));
+		  
+		 materiasRepository.saveAll(Arrays.asList(materia));
+		 
 		
 	}
 
