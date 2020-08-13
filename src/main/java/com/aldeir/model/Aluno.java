@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -28,6 +29,8 @@ public class Aluno extends Pessoas implements Serializable {
 	@ManyToMany(mappedBy = "alunos" )
    private List<Professor> professores = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "aluno")
+	private List<Telefone> telefones = new ArrayList<>();
 	public Aluno() {
 	}
 	
@@ -65,6 +68,12 @@ public class Aluno extends Pessoas implements Serializable {
 	}
 	public void setProfessores(List<Professor> professores) {
 		this.professores = professores;
+	}
+	public List<Telefone> getTelefone() {
+		return telefones;
+	}
+	public void setTelefone(List<Telefone> telefones) {
+		this.telefones = telefones;
 	}
 	}
 	

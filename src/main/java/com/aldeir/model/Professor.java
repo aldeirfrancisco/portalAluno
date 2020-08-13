@@ -28,6 +28,9 @@ public class Professor extends Pessoas implements Serializable {
 	joinColumns = @JoinColumn(name = "professor_id"),
 	inverseJoinColumns = @JoinColumn(name = "aluno_id"))
 	private List<Aluno> alunos = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "professor")
+	private List<Telefone> telefones = new ArrayList<>();
 
 	  public Professor(){
 		  super();
@@ -55,7 +58,12 @@ public class Professor extends Pessoas implements Serializable {
 		public void setMaterias(List<Materias> materias) {
 			this.materias = materias;
 		}
-	
+		public List<Telefone> getTelefone() {
+			return telefones;
+		}
+		public void setTelefone(List<Telefone> telefones) {
+			this.telefones = telefones;
+		}
 	
 	
 
