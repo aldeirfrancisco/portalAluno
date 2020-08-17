@@ -22,24 +22,26 @@ public class Aluno extends Pessoas implements Serializable {
 	private Integer matricula;
 	private Integer turno;
 	
-	
 	@ManyToMany(mappedBy = "alunos")
 	private List<Materias> materias = new ArrayList<>();
+
+	
+	@OneToMany(mappedBy = "aluno")
+	private List<Telefone> telefones = new ArrayList<>();
+	
 
 	@ManyToMany(mappedBy = "alunos" )
    private List<Professor> professores = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "aluno")
-	private List<Telefone> telefones = new ArrayList<>();
+	
 	public Aluno() {
 	}
 	
 
 
-	public Aluno(String nome, String email, String curso, Integer id, Integer matricula, Turno turno) {
+	public Aluno(String nome, String email, String curso, Integer id, Turno turno) {
 		super(id,nome, email, curso);
-	
-		this.matricula = matricula;
+	  
 		this.turno = turno.getCod();
 	}
 
@@ -57,23 +59,26 @@ public class Aluno extends Pessoas implements Serializable {
 	public void setTurno(Turno turno) {
 		this.turno = turno.getCod();
 	}
+	
+	
 	public List<Materias> getMaterias() {
 		return materias;
 	}
 	public void setMaterias(List<Materias> materias) {
 		this.materias = materias;
 	}
-	public List<Professor> getProfessores() {
-		return professores;
-	}
-	public void setProfessores(List<Professor> professores) {
-		this.professores = professores;
-	}
+	
 	public List<Telefone> getTelefone() {
 		return telefones;
 	}
 	public void setTelefone(List<Telefone> telefones) {
 		this.telefones = telefones;
+	}
+	public List<Professor> getProfessores() {
+		return professores;
+	}
+	public void setProfessores(List<Professor> professores) {
+		this.professores = professores;
 	}
 	}
 	

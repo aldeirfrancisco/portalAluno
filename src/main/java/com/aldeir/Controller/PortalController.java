@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.aldeir.model.Aluno;
+import com.aldeir.model.Materias;
+import com.aldeir.model.Professor;
 import com.aldeir.service.AlunoService;
+import com.aldeir.service.MateriasService;
+import com.aldeir.service.ProfessorService;
 
 
 @Controller
@@ -19,11 +23,16 @@ public class PortalController {
 	@Autowired
 	private AlunoService  alunoService;
 	
+	@Autowired
+	private MateriasService materiaService;
+	
+	@Autowired
+	private ProfessorService professorService;
 	
 	
 	@RequestMapping( "/Dashboard")
 	public String novo() {
-		return "CadastrarMateria";
+		return "CadastrarProfessor";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -40,5 +49,12 @@ List<Aluno> aluno = alunoService.buscar();
 		
 		return mv;
 	}
+	@RequestMapping(value = "/professor", method = RequestMethod.POST)
+	public String salvarProfessor(Professor professor) {
+		professorService.salvarProfessor(professor);
+		
+		return "/Aluno/Dashboard";
+	}
+	
 
 }

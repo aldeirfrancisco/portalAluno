@@ -21,6 +21,7 @@ public class Materias implements Serializable {
 	@GeneratedValue
 	private Integer id;
 	private String nome;
+	
 
 	@ManyToMany
 	@JoinTable(name = "materias_alunos", joinColumns = @JoinColumn(name = "alunos_id"), inverseJoinColumns = @JoinColumn(name = "materias_id"))
@@ -36,6 +37,7 @@ public class Materias implements Serializable {
 		super();
 		this.id = id;
 		this.nome = nome;
+		
 		this.professor = professor;
 	}
 
@@ -54,6 +56,7 @@ public class Materias implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 
 	public List<Aluno> getAluno() {
 		return alunos;
