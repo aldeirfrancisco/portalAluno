@@ -12,7 +12,7 @@ import com.aldeir.service.ProfessorService;
 
 
 @Controller
-@RequestMapping( "/Professor")
+@RequestMapping( "/novo")
 public class ProfessorController {
 	
 	
@@ -21,7 +21,7 @@ public class ProfessorController {
 	private ProfessorService professorService;
 	
 	
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST,value = "/professor")
 	public String salvarProfessor(Professor professor,Materias materia, Telefone telefone) {
 		professorService.salvarProfessor(professor,materia,telefone);
 		
