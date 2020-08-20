@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -24,12 +21,12 @@ public class Professor extends Pessoas implements Serializable {
 	  @OneToMany(mappedBy = "professor") 
 	  private List<Telefone> telefones = new ArrayList<>();
 	  
-	  @ManyToMany
+	   /* @ManyToMany
 		@JoinTable(name = "ALUNO_PROFESSOR",
 		joinColumns = @JoinColumn(name = "professor_id"),
 		inverseJoinColumns = @JoinColumn(name = "aluno_id"))
 		private List<Aluno> alunos = new ArrayList<>();
-	  
+	  */
 	public Professor() {
 		super();
 	}
@@ -47,16 +44,16 @@ public class Professor extends Pessoas implements Serializable {
 	  } public List<Telefone> getTelefone() { 
 		  return telefones; 
 		  } 
-	  public void
-	  setTelefone(List<Telefone> telefones) {
+	  public void setTelefone(List<Telefone> telefones) {
 		  this.telefones = telefones; 
-		  }
+	}
+	  /*
 	  public List<Aluno> getAlunos() {
 			return alunos;
 		}
-	 
+	
 		public void setAlunos(List<Aluno> alunos) {
 			this.alunos = alunos;
 		}
-
+  */
 }

@@ -17,9 +17,8 @@ public class MateriasService {
 	private MateriasRepository materiasRepository;
 
 	
-	   public void salvarMaterias(Materias materia,Aluno aluno,Professor professor) {
-		  materia.getAluno().addAll(Arrays.asList(aluno));
-			materia.setProfessores(professor);
+	   public void salvarMaterias(Materias materia) {
+		 
 			materiasRepository.saveAll(Arrays.asList(materia));
 		   
 	   }

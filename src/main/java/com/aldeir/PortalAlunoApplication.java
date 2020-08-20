@@ -16,7 +16,6 @@ import com.aldeir.repository.AlunoRepository;
 import com.aldeir.repository.MateriasRepository;
 import com.aldeir.repository.ProfessorRepository;
 import com.aldeir.repository.TelefoneRepository;
-import com.aldeir.service.AlunoService;
 
 @SpringBootApplication
 public class PortalAlunoApplication implements CommandLineRunner {
@@ -46,11 +45,11 @@ public class PortalAlunoApplication implements CommandLineRunner {
 	
 		Aluno aluno = new Aluno("aldeir","aldeir@gmail.com","tads",null, Turno.NOTUTNO);
 		Materias materia = new Materias(null, "projeto integrado",professor);
-		professor.getAlunos().addAll(Arrays.asList(aluno));
+		//professor.getAlunos().addAll(Arrays.asList(aluno));
 		professor.getMaterias().addAll(Arrays.asList(materia));
 		professor.getTelefone().addAll(Arrays.asList(prof_telefone));
 		
-		aluno.getProfessores().addAll(Arrays.asList(professor));
+		//aluno.getProfessores().addAll(Arrays.asList(professor));
 		aluno.getMaterias().addAll(Arrays.asList(materia));
 		aluno.getTelefone().addAll(Arrays.asList(alun_telefone));
 		
